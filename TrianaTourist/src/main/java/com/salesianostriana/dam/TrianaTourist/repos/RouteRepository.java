@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface RouteRepository extends JpaRepository<Route,Long> {
 
+    boolean existsByName(String name);
+
     @Query("""
             select new com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRouteDto(
                 r.id, r.name
@@ -16,4 +18,5 @@ public interface RouteRepository extends JpaRepository<Route,Long> {
             from Route r 
             """)
     List<GetRouteDto> todasLasRutasDto();
+
 }

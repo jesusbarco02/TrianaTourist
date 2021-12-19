@@ -12,10 +12,10 @@ import java.util.ArrayList;
 @Getter
 @Setter
 @Builder
-public class RouteStep {
+public class RoutePOI {
     @Builder.Default
     @EmbeddedId
-    private RouteStepPk id = new RouteStepPk();
+    private RoutePOIPk id = new RoutePOIPk();
 
     @ManyToOne
     @MapsId("route_id")

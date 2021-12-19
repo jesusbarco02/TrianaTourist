@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RouteStepPk implements Serializable {
+public class RoutePOIPk implements Serializable {
 
     private Long route_id;
     private Long poi_id;

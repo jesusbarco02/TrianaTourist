@@ -34,12 +34,9 @@ public class CategoryService {
     }
 
     public Category save (CreateCategoryDto e){
-        Category estacion = categoryDtoConverter.crearCategory(e);
-
-        this.categoryRepository.save(estacion);
-
-        return estacion;
-
+        Category category = categoryDtoConverter.createCategory(e);
+        this.categoryRepository.save(category);
+        return category;
     }
 
     public Category edit (CreateCategoryDto categoria, Long id) {

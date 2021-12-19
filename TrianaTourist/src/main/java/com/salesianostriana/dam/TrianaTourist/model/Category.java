@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PreRemove;
 
 @Entity
 @NoArgsConstructor
@@ -23,4 +24,5 @@ public class Category {
     public Category(String name) {
         this.name = name;
     }
+
 }

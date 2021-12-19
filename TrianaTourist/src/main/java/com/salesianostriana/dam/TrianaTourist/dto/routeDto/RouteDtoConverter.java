@@ -17,12 +17,33 @@ public class RouteDtoConverter {
         );
     }
 
+    public GetRouteDto editRoute(Route route){
+        return GetRouteDto.builder()
+                .id(route.getId())
+                .name(route.getName())
+                .build();
+    }
+
+    public GetRouteDto route (Route route){
+        return GetRouteDto.builder()
+                .id(route.getId())
+                .name(route.getName())
+                .build();
+    }
+
     public GetRoutePOIDto routePoiDto(Route routePoiDto){
         return GetRoutePOIDto.builder()
                 .id(routePoiDto.getId())
                 .name(routePoiDto.getName())
-                .pois(routePoiDto.getSteps().stream().map(p -> new GetPoiDto(p.getPointOfInterest().getName(),p.getPointOfInterest().getLocation(),p.getPointOfInterest().getDescripcion(),p.getPointOfInterest().getDate(),p.getPointOfInterest().getCoverPhoto(), p.getPointOfInterest().getPhoto2(),p.getPointOfInterest().getPhoto3())).collect(Collectors.toList()))
+                .steps(routePoiDto.getSteps().stream().map(p -> new GetPoiDto(p.getPointOfInterest().getId(),
+                        p.getPointOfInterest().getName(),p.getPointOfInterest().getLocation(),
+                        p.getPointOfInterest().getDescripcion(),p.getPointOfInterest().getDate(),
+                        p.getPointOfInterest().getCoverPhoto(), p.getPointOfInterest().getPhoto2(),
+                        p.getPointOfInterest().getPhoto3(),p.getPointOfInterest().getCategory().getId(),
+                        p.getPointOfInterest().getCategory().getName())).collect(Collectors.toList()))
                 .build();
     }
+
+
 
 }

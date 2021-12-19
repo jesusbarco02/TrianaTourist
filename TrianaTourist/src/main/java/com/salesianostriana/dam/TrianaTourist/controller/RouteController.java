@@ -4,7 +4,7 @@ import com.salesianostriana.dam.TrianaTourist.dto.routeDto.CreateRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRoutePOIDto;
 import com.salesianostriana.dam.TrianaTourist.model.Route;
-import com.salesianostriana.dam.TrianaTourist.services.RouteServices;
+import com.salesianostriana.dam.TrianaTourist.services.RouteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,7 @@ import java.util.List;
 @RequestMapping("/route")
 public class RouteController {
 
-    private final RouteServices service;
-    private final RouteStepService routeStepServices;
+    private final RouteService service;
 
     @GetMapping("/")
     public List<GetRouteDto> findAll(){
@@ -32,12 +31,12 @@ public class RouteController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Route> crear(@Valid @RequestBody CreateRouteDto route){
+    public ResponseEntity<GetRouteDto> crear(@Valid @RequestBody CreateRouteDto route){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(route));
     }
 
     @PutMapping("/{id}")
-    public Route edit(@Valid @RequestBody CreateRouteDto route, @PathVariable Long id ){
+    public GetRouteDto edit(@Valid @RequestBody CreateRouteDto route, @PathVariable Long id ){
         return service.edit(route,id);
     }
 

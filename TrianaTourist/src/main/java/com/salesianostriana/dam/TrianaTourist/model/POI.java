@@ -42,7 +42,9 @@ public class POI {
     private String photo3;
 
     @OneToMany(mappedBy = "pointOfInterest")
-    private List<RouteStep> routes = new ArrayList<>();
+    private List<RoutePOI> routes = new ArrayList<>();
+
+
 
 
 

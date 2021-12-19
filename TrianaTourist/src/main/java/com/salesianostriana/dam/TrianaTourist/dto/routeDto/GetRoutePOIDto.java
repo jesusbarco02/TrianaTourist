@@ -13,8 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class GetRoutePOIDto {
-
     private Long id;
     private String name;
-    private List<GetPoiDto> pois;
+    private List<GetPoiDto> steps;
 }

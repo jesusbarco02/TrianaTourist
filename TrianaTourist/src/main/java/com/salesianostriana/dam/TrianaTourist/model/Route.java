@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Entity
 @NoArgsConstructor
@@ -23,9 +22,9 @@ public class Route {
 
     @Builder.Default
     @OneToMany(mappedBy = "route")
-    private List<RouteStep> steps = new ArrayList<>();
+    private List<RoutePOI> steps = new ArrayList<>();
 
-    public Route(String name) {
+    public Route( String name) {
         this.name = name;
     }
 

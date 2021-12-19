@@ -1,9 +1,7 @@
 package com.salesianostriana.dam.TrianaTourist.controller;
 
 import com.salesianostriana.dam.TrianaTourist.dto.categoryDto.CreateCategoryDto;
-import com.salesianostriana.dam.TrianaTourist.dto.routeDto.CreateRouteDto;
 import com.salesianostriana.dam.TrianaTourist.model.Category;
-import com.salesianostriana.dam.TrianaTourist.model.Route;
 import com.salesianostriana.dam.TrianaTourist.services.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
