@@ -42,6 +42,14 @@ public class CategoryService {
 
     }
 
+    public Category edit (CreateCategoryDto categoria, Long id) {
+        return categoryRepository.findById(id).map(c -> {
+            c.setName(categoria.getName());
+            return categoryRepository.save(c);
+        }).orElseThrow(() -> new SingleEntityNotFoundException(id.toString(), Category.class));
+
+    }
+
     public void deleteById (Long id){
         Optional<Category> estacion = categoryRepository.findById(id);
         if(estacion.isEmpty()){
@@ -50,8 +58,5 @@ public class CategoryService {
             categoryRepository.deleteById(id);
         }
     }
-
-
-
 
 }

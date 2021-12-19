@@ -2,12 +2,10 @@ package com.salesianostriana.dam.TrianaTourist.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @NoArgsConstructor
@@ -23,6 +21,13 @@ public class Route {
 
     private String name;
 
-    @ManyToMany
-    private List<POI> steps = new ArrayList<>();
+    @Builder.Default
+    @OneToMany(mappedBy = "route")
+    private List<RouteStep> steps = new ArrayList<>();
+
+    public Route(String name) {
+        this.name = name;
+    }
+
+
 }
