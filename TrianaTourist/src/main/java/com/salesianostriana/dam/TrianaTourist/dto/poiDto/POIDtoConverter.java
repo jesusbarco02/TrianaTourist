@@ -23,8 +23,8 @@ public class POIDtoConverter {
                 .coverPhoto(poi.getCoverPhoto())
                 .photo2(poi.getPhoto2())
                 .photo3(poi.getPhoto3())
-                .categoryId(poi.getCategory().getId())
-                .categoryName(poi.getCategory().getName())
+                .categoryId(poi.getCategory()==null?null:poi.getCategory().getId())
+                .categoryName(poi.getCategory()==null?null:poi.getCategory().getName())
                 .build();
     }
 

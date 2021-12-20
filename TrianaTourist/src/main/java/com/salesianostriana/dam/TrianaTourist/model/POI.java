@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.TrianaTourist.model;
 
 import lombok.*;
+import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -37,12 +38,13 @@ public class POI {
 
     @ManyToOne
     private Category category;
+    @URL
     private String coverPhoto;
+    @URL
     private String photo2;
+    @URL
     private String photo3;
 
-    @OneToMany(mappedBy = "pointOfInterest")
-    private List<RoutePOI> routes = new ArrayList<>();
 
 
 

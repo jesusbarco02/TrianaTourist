@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.TrianaTourist.controller;
 
+import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePOIDto;
+import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePoiRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.CreateRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRoutePOIDto;

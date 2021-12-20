@@ -1,13 +1,14 @@
 package com.salesianostriana.dam.TrianaTourist.services;
 
+import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePOIDto;
+import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePoiRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.*;
 import com.salesianostriana.dam.TrianaTourist.errores.excepciones.ListEntityNotFoundException;
+import com.salesianostriana.dam.TrianaTourist.errores.excepciones.RoutePoiExist;
 import com.salesianostriana.dam.TrianaTourist.errores.excepciones.SingleEntityNotFoundException;
 import com.salesianostriana.dam.TrianaTourist.model.POI;
 import com.salesianostriana.dam.TrianaTourist.model.Route;
-import com.salesianostriana.dam.TrianaTourist.model.RoutePOI;
 import com.salesianostriana.dam.TrianaTourist.repos.RouteRepository;
-import com.salesianostriana.dam.TrianaTourist.repos.RouteStepRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,6 @@ public class RouteService {
     private final RouteRepository routeRepository;
     private final RouteDtoConverter routeDtoConverter;
     private final POIService poiService;
-    private final RouteStepRepository routeStepRepository;
 
     public List<GetRouteDto> findAll(){
         List<Route> result = routeRepository.findAll();
@@ -52,14 +52,15 @@ public class RouteService {
     }
 
     public GetRoutePOIDto createListPoi (Long idRoute, Long idPoi){
-
         POI p = poiService.findById(idPoi);
         Route r = this.findById(idRoute);
-        RoutePOI routeStep = new RoutePOI();
+        r.getSteps().stream().forEach(poi -> {
+            if(poi.getId().equals(idPoi))
+                throw new RoutePoiExist(idPoi.toString(),POI.class);
+        });
 
-        routeStep.addToRoute(r);
-        routeStep.addToPoi(p);
-        routeStepRepository.save(routeStep);
+        r.addToRoute(p);
+        routeRepository.save(r);
         GetRoutePOIDto result = routeDtoConverter.routePoiDto(r);
         return result;
     }

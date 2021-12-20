@@ -35,12 +35,12 @@ public class RouteDtoConverter {
         return GetRoutePOIDto.builder()
                 .id(routePoiDto.getId())
                 .name(routePoiDto.getName())
-                .steps(routePoiDto.getSteps().stream().map(p -> new GetPoiDto(p.getPointOfInterest().getId(),
-                        p.getPointOfInterest().getName(),p.getPointOfInterest().getLocation(),
-                        p.getPointOfInterest().getDescripcion(),p.getPointOfInterest().getDate(),
-                        p.getPointOfInterest().getCoverPhoto(), p.getPointOfInterest().getPhoto2(),
-                        p.getPointOfInterest().getPhoto3(),p.getPointOfInterest().getCategory().getId(),
-                        p.getPointOfInterest().getCategory().getName())).collect(Collectors.toList()))
+                    .steps(routePoiDto.getSteps().stream().map(p -> new GetPoiDto(p.getId(),
+                        p.getName(),p.getLocation(),
+                        p.getDescripcion(),p.getDate(),
+                        p.getCoverPhoto(), p.getPhoto2(),
+                        p.getPhoto3(),p.getCategory().getId(),
+                        p.getCategory().getName())).collect(Collectors.toList()))
                 .build();
     }
 

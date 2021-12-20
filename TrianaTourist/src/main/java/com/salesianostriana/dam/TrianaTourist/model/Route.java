@@ -21,11 +21,16 @@ public class Route {
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "route")
-    private List<RoutePOI> steps = new ArrayList<>();
+    @ManyToMany
+    private List<POI> steps = new ArrayList<>();
 
     public Route( String name) {
         this.name = name;
+    }
+
+    public void addToRoute(POI r){
+        steps.add(r);
+
     }
 
 
