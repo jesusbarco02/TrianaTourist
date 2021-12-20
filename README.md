@@ -1,6 +1,6 @@
 # TRIANA TOURIST
 
-#### Repositorio del proyecto **TRIANA TOURIST** del módulo de Aceso a Datos y Programación de Servicios y Procesos 2021-22. ####
+#### Repositorio del proyecto **TRIANA TOURIST** del módulo de Acceso a Datos y Programación de Servicios y Procesos 2021-22. ####
 
 </br>
 
