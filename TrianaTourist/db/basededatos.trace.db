@@ -964,3 +964,11 @@ where (p.id = r.poi_id) and (p.id = ?)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2021-12-20 17:01:52 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM POI P JOIN ROUTE WHERE P.NAME IN ( SELECT P.NAME FROM ROUTE_STEPS R WHERE (P.ID = R.STEPS_ID) AND (P.ID = 2)[*]"; se esperaba "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, WINDOW, QUALIFY, UNION, EXCEPT, MINUS, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, SAMPLE_SIZE, FOR, ,, )"
+Syntax error in SQL statement "SELECT * FROM POI P JOIN ROUTE WHERE P.NAME IN ( SELECT P.NAME FROM ROUTE_STEPS R WHERE (P.ID = R.STEPS_ID) AND (P.ID = 2)[*]"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, WINDOW, QUALIFY, UNION, EXCEPT, MINUS, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, SAMPLE_SIZE, FOR, ,, )"; SQL statement:
+SELECT * FROM POI p JOIN ROUTE where p.name in ( select p.name from ROUTE_STEPS r where (p.id = r.STEPS_ID) and (p.id = 2) [42001-200]
+2021-12-20 17:02:06 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM POI P LEFT JOIN ROUTE WHERE P.NAME IN ( SELECT P.NAME FROM ROUTE_STEPS R WHERE (P.ID = R.STEPS_ID) AND (P.ID = 2)[*]"; se esperaba "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, WINDOW, QUALIFY, UNION, EXCEPT, MINUS, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, SAMPLE_SIZE, FOR, ,, )"
+Syntax error in SQL statement "SELECT * FROM POI P LEFT JOIN ROUTE WHERE P.NAME IN ( SELECT P.NAME FROM ROUTE_STEPS R WHERE (P.ID = R.STEPS_ID) AND (P.ID = 2)[*]"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, WINDOW, QUALIFY, UNION, EXCEPT, MINUS, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, SAMPLE_SIZE, FOR, ,, )"; SQL statement:
+SELECT * FROM POI p LEFT JOIN ROUTE where p.name in ( select p.name from ROUTE_STEPS r where (p.id = r.STEPS_ID) and (p.id = 2) [42001-200]

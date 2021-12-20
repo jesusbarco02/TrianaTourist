@@ -12,7 +12,7 @@ import javax.validation.ConstraintValidatorContext;
 public class UniqueCategoryValidator implements ConstraintValidator<UniqueCategory, String> {
 
     @Autowired
-    private RouteRepository repositorio;
+    private CategoryRepository repositorio;
 
     @Override
     public void initialize(UniqueCategory constraintAnnotation) { }

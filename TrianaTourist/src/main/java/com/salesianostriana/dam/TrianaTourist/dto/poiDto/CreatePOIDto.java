@@ -3,6 +3,7 @@ package com.salesianostriana.dam.TrianaTourist.dto.poiDto;
 import com.salesianostriana.dam.TrianaTourist.validation.simple.annotations.ExistingCategory;
 import com.salesianostriana.dam.TrianaTourist.validation.simple.annotations.UniquePhoto;
 import lombok.*;
+import org.hibernate.validator.constraints.URL;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor @Builder
-@UniquePhoto(coverPhotoField = "coverPhoto", photo2Field = "photo2", photo3Field = "photo3", message = "poi.uniquePhoto")
+@UniquePhoto(coverPhotoField = "coverPhoto", photo2Field = "photo2", photo3Field = "photo3", message = "{poi.uniquePhoto}")
 public class CreatePOIDto {
     private Long id;
     @NotBlank(message = "{poi.blank}")
@@ -21,9 +22,13 @@ public class CreatePOIDto {
     private String location;
     private String descripcion;
     private LocalDate date;
-    @ExistingCategory(message = "poi.categoryId")
+    @ExistingCategory(message = "{poi.categoryId}")
     private Long category;
+    @NotBlank(message = "{poi.coverPhoto.blank}")
+    @URL(message = "{poi.photo}")
     private String coverPhoto;
+    @URL(message = "{poi.photo}")
     private String photo2;
+    @URL(message = "{poi.photo}")
     private String photo3;
 }

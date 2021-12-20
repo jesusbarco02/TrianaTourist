@@ -1,8 +1,8 @@
 package com.salesianostriana.dam.TrianaTourist.errores.excepciones;
 
 public class RoutePoiExist extends EntityNotFoundException {
-    public RoutePoiExist(String id, Class clazz){
-        super(String.format("Ya existe un %s con ID: %s", clazz.getName(),id));
+    public RoutePoiExist(String id){
+        super(String.format("Ya existe un punto de interés en la ruta con ID: %s",id));
     }
 
 }

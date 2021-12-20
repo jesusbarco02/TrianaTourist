@@ -26,15 +26,11 @@ public class UniquePhotoValidator implements ConstraintValidator<UniquePhoto, Ob
         String photo2 = (String) PropertyAccessorFactory.forBeanPropertyAccess(s).getPropertyValue(photo2Field);
         String photo3 = (String) PropertyAccessorFactory.forBeanPropertyAccess(s).getPropertyValue(photo3Field);
 
-        if(coverPhoto.equals(photo2) || coverPhoto.equals(photo3) || photo2.equals(photo3)){
+        if(coverPhoto.equals(photo2) || coverPhoto.equals(photo3) || photo2.equals(photo3) ||
+                (photo2.equals(null) && coverPhoto.equals(photo3)) || (photo3.equals(null) && coverPhoto.equals(photo2))){
             return false;
         }else {
-            if (photo2 == null){
-                return !coverPhoto.equals(photo3);
-            }
-            if(photo3 == null){
-                return !coverPhoto.equals(photo2);
-            }
+            return true;
         }
 
 

@@ -51,12 +51,12 @@ public class RouteService {
         return routeDtoConverter.route(route);
     }
 
-    public GetRoutePOIDto createListPoi (Long idRoute, Long idPoi){
-        POI p = poiService.findById(idPoi);
+    public GetRoutePOIDto createListPoi (Long idRoute, CreatePoiRouteDto idPoi){
+        POI p = poiService.findById(idPoi.getId());
         Route r = this.findById(idRoute);
         r.getSteps().stream().forEach(poi -> {
-            if(poi.getId().equals(idPoi))
-                throw new RoutePoiExist(idPoi.toString(),POI.class);
+            if(poi.getId().equals(idPoi.getId()))
+                throw new RoutePoiExist(idPoi.getId().toString());
         });
 
         r.addToRoute(p);

@@ -42,8 +42,8 @@ public class RouteController {
         return service.edit(route,id);
     }
 
-    @PostMapping("/{idRoute}/poi/{idPoi}")
-    public ResponseEntity<GetRoutePOIDto> crearListPoi(@Valid @PathVariable Long idRoute, @PathVariable Long idPoi){
+    @PostMapping("/{idRoute}/poi")
+    public ResponseEntity<GetRoutePOIDto> crearListPoi(@Valid @PathVariable Long idRoute, @RequestBody CreatePoiRouteDto idPoi){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createListPoi(idRoute,idPoi));
     }
 
