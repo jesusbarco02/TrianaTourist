@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.TrianaTourist.validation.simple.validations;
 
 import com.salesianostriana.dam.TrianaTourist.repos.CategoryRepository;
-import com.salesianostriana.dam.TrianaTourist.repos.RouteRepository;
 import com.salesianostriana.dam.TrianaTourist.validation.simple.annotations.UniqueCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;

@@ -30,7 +30,10 @@ public class Route {
 
     public void addToRoute(POI r){
         steps.add(r);
+    }
 
+    public void deleteToRoute(POI r){
+        steps.remove(r);
     }
 
 

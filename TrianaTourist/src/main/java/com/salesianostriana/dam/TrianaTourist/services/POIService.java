@@ -23,12 +23,12 @@ public class POIService {
     private final CategoryService categoryService;
     private final POIDtoConverter poiDtoConverter;
 
-    public List<GetPoiDto> findAll(){
+    public List<GetPoiDto> findAll() {
         List<POI> data = poiRepository.findAll();
 
-        if (data.isEmpty()){
+        if (data.isEmpty()) {
             throw new ListEntityNotFoundException(POI.class);
-        }else{
+        } else {
             List<GetPoiDto> result =
                     data.stream()
                             .map(poiDtoConverter::poiRouteDto)
@@ -37,12 +37,12 @@ public class POIService {
         }
     }
 
-    public POI findById(Long id){
+    public POI findById(Long id) {
         return poiRepository.findById(id)
-                .orElseThrow(() -> new SingleEntityNotFoundException(id.toString(),POI.class));
+                .orElseThrow(() -> new SingleEntityNotFoundException(id.toString(), POI.class));
     }
 
-    public GetPoiDto save (CreatePOIDto p){
+    public GetPoiDto save(CreatePOIDto p) {
         POI poi = POI.builder()
                 .name(p.getName())
                 .location(p.getLocation())
@@ -57,7 +57,7 @@ public class POIService {
         return poiDtoConverter.poiRouteDto(poi);
     }
 
-    public GetPoiDto edit (CreatePOIDto poi, Long id) {
+    public GetPoiDto edit(CreatePOIDto poi, Long id) {
         return poiRepository.findById(id).map(p -> {
             p.setName(poi.getName());
             p.setLocation(poi.getLocation());
@@ -74,11 +74,11 @@ public class POIService {
 
     }
 
-    public void deleteById (Long id){
+    public void deleteById(Long id) {
         Optional<POI> poi = poiRepository.findById(id);
-        if(poi.isEmpty()){
-            throw new SingleEntityNotFoundException(id.toString(),POI.class);
-        }else{
+        if (poi.isEmpty()) {
+            throw new SingleEntityNotFoundException(id.toString(), POI.class);
+        } else {
             poi.map(p -> {
                 p.setCategory(null);
                 poiRepository.save(p);
@@ -87,6 +87,5 @@ public class POIService {
             });
         }
     }
-
 
 }

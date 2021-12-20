@@ -19,30 +19,29 @@ import java.util.List;
 public class PoiController {
 
     private final POIService poiService;
-    private final POIDtoConverter poiDtoConverter;
 
     @GetMapping("/")
-    public List<GetPoiDto> findAll(){
+    public List<GetPoiDto> findAll() {
         return poiService.findAll();
     }
 
     @GetMapping("/{id}")
-    public POI findById(@PathVariable Long id){
+    public POI findById(@PathVariable Long id) {
         return poiService.findById(id);
     }
 
     @PostMapping("/")
-    public ResponseEntity<GetPoiDto> crear(@Valid @RequestBody CreatePOIDto poi){
+    public ResponseEntity<GetPoiDto> crear(@Valid @RequestBody CreatePOIDto poi) {
         return ResponseEntity.status(HttpStatus.CREATED).body(poiService.save(poi));
     }
 
     @PutMapping("/{id}")
-    public GetPoiDto edit(@Valid @RequestBody CreatePOIDto poi, @PathVariable Long id ){
-        return poiService.edit(poi,id);
+    public GetPoiDto edit(@Valid @RequestBody CreatePOIDto poi, @PathVariable Long id) {
+        return poiService.edit(poi, id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id){
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         poiService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

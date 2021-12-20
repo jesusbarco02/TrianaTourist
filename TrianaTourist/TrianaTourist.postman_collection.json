@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "d31a74ab-ad83-4662-8050-876dd709a674",
+		"name": "TrianaTourist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "route",
+			"item": [
+				{
+					"name": "Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/route/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/route/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Ruta de la tapa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/route/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Toros\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/route/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/route/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route Id POI Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/route/1/poi/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								"poi",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Route Id POI id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/route/1/poi/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								"poi",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoy",
+			"item": [
+				{
+					"name": "Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Bares\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Bar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Point of Interest",
+			"item": [
+				{
+					"name": "Point of Interest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pointOfInterest/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pointOfInterest",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Point Of Interest ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pointOfInterest/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pointOfInterest",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Point of Interest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Mesón del serranito\",\r\n    \"location\":\"37.386, -6.003\",\r\n    \"descripcion\":\"Mesones del Serranito, nuestros bares en Sevilla son una auténtica leyenda Sevillana desde 1983, conoce nuestra historia.\",\r\n    \"date\":\"1945-11-30\",\r\n    \"category\":2,\r\n    \"coverPhoto\":\"https://fotografias.lasexta.com/clipping/cmsimages02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\",\r\n    \"photo2\":\"https://fotografias.lasexta.com/clicpping/cmsimages02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\",\r\n    \"photo3\":\"https://fotografias.lasexta.com/clipping/cmsimaxcvges02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pointOfInterest/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pointOfInterest",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Point of Interest ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Mesón del serranito\",\r\n    \"location\":\"37.386, -6.003\",\r\n    \"descripcion\":\"Mesones del Serranito, nuestros bares en Sevilla son una auténtica leyenda Sevillana desde 1983, conoce nuestra historia.\",\r\n    \"date\":\"1945-11-30\",\r\n    \"category\":2,\r\n    \"coverPhoto\":\"https://fotografias.lasexta.com/clipping/cmsimages02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\",\r\n    \"photo2\":\"https://fotografias.lasexta.com/clicpping/cmsimages02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\",\r\n    \"photo3\":\"https://fotografias.lasexta.com/clipping/cmsimaxcvges02/2020/11/30/666A6712-B5FA-4C6D-A43D-288375729C0A/98.jpg?crop=1920,1080,x0,y98&width=1900&height=1069&optimize=high&format=webply\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pointOfInterest/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pointOfInterest",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pointOfInterest/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pointOfInterest",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

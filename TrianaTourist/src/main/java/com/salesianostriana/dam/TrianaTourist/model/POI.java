@@ -1,12 +1,10 @@
 package com.salesianostriana.dam.TrianaTourist.model;
 
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @NoArgsConstructor
@@ -20,6 +18,21 @@ public class POI {
     @GeneratedValue
     private Long id;
 
+    private String name;
+    private String location;
+    @Lob
+    private String descripcion;
+    private LocalDate date;
+
+    @ManyToOne
+    private Category category;
+
+    private String coverPhoto;
+
+    private String photo2;
+
+    private String photo3;
+
     public POI(String name, String location, String descripcion, LocalDate date, String coverPhoto, String photo2, String photo3) {
         this.name = name;
         this.location = location;
@@ -29,25 +42,6 @@ public class POI {
         this.photo2 = photo2;
         this.photo3 = photo3;
     }
-
-    private String name;
-    private String location;
-    @Lob
-    private String descripcion;
-    private LocalDate date;
-
-    @ManyToOne
-    private Category category;
-    @URL
-    private String coverPhoto;
-    @URL
-    private String photo2;
-    @URL
-    private String photo3;
-
-
-
-
 
 
 }

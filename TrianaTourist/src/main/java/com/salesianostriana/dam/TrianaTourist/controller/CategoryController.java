@@ -19,27 +19,27 @@ public class CategoryController {
     private final CategoryService service;
 
     @GetMapping("/")
-    public List<Category> findAll(){
+    public List<Category> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Category findById(@PathVariable Long id){
+    public Category findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
     @PostMapping("/")
-    public ResponseEntity<Category> crear(@Valid @RequestBody CreateCategoryDto category){
+    public ResponseEntity<Category> crear(@Valid @RequestBody CreateCategoryDto category) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(category));
     }
 
     @PutMapping("/{id}")
-    public Category edit(@Valid @RequestBody CreateCategoryDto category, @PathVariable Long id ){
-        return service.edit(category,id);
+    public Category edit(@Valid @RequestBody CreateCategoryDto category, @PathVariable Long id) {
+        return service.edit(category, id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id){
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         service.deleteById(id);
         return ResponseEntity.noContent().build();
     }

@@ -22,28 +22,28 @@ public class CategoryService {
     private final CategoryDtoConverter categoryDtoConverter;
     private final POIRepository poiRepository;
 
-    public List<Category> findAll(){
+    public List<Category> findAll() {
         List<Category> result = categoryRepository.findAll();
 
-        if (result.isEmpty()){
+        if (result.isEmpty()) {
             throw new ListEntityNotFoundException(Category.class);
-        }else{
+        } else {
             return result;
         }
     }
 
-    public Category findById(Long id){
+    public Category findById(Long id) {
         return categoryRepository.findById(id)
-                .orElseThrow(() -> new SingleEntityNotFoundException(id.toString(),Category.class));
+                .orElseThrow(() -> new SingleEntityNotFoundException(id.toString(), Category.class));
     }
 
-    public Category save (CreateCategoryDto e){
-        Category category = categoryDtoConverter.createCategory(e);
+    public Category save(CreateCategoryDto c) {
+        Category category = categoryDtoConverter.createCategory(c);
         this.categoryRepository.save(category);
         return category;
     }
 
-    public Category edit (CreateCategoryDto categoria, Long id) {
+    public Category edit(CreateCategoryDto categoria, Long id) {
         return categoryRepository.findById(id).map(c -> {
             c.setName(categoria.getName());
             return categoryRepository.save(c);
@@ -51,11 +51,11 @@ public class CategoryService {
 
     }
 
-    public void deleteById (Long id){
+    public void deleteById(Long id) {
         Optional<Category> category = categoryRepository.findById(id);
-        if(category.isEmpty()){
-            throw new SingleEntityNotFoundException(id.toString(),Category.class);
-        }else{
+        if (category.isEmpty()) {
+            throw new SingleEntityNotFoundException(id.toString(), Category.class);
+        } else {
             List<POI> poi = poiRepository.todasCategoriasPOI(id);
             poi.forEach(p -> {
                 p.setCategory(null);

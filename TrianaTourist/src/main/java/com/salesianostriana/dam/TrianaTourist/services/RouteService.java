@@ -63,6 +63,15 @@ public class RouteService {
         return result;
     }
 
+    public GetRoutePOIDto removeListPoi (Long idRoute, Long idPoi){
+        POI p = poiService.findById(idPoi);
+        Route r = this.findById(idRoute);
+        r.deleteToRoute(p);
+        routeRepository.save(r);
+        GetRoutePOIDto result = routeDtoConverter.routePoiDto(r);
+        return result;
+    }
+
     public GetRouteDto edit (CreateRouteDto route, Long id) {
         return routeRepository.findById(id).map(r -> {
             r.setName(route.getName());

@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GetPoiDto  {
+public class GetPoiDto {
 
     private Long id;
     private String name;

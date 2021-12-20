@@ -3,13 +3,9 @@ package com.salesianostriana.dam.TrianaTourist.repos;
 import com.salesianostriana.dam.TrianaTourist.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
-import java.util.List;
-
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     boolean existsById(Long id);
+
     boolean existsByName(String name);
-
-
 
 }
