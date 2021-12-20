@@ -1,7 +1,5 @@
 package com.salesianostriana.dam.TrianaTourist.services;
 
-import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePOIDto;
-import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePoiRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.*;
 import com.salesianostriana.dam.TrianaTourist.errores.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.dam.TrianaTourist.errores.excepciones.RoutePoiExist;
@@ -51,12 +49,12 @@ public class RouteService {
         return routeDtoConverter.route(route);
     }
 
-    public GetRoutePOIDto createListPoi (Long idRoute, CreatePoiRouteDto idPoi){
-        POI p = poiService.findById(idPoi.getId());
+    public GetRoutePOIDto createListPoi (Long idRoute, Long idPoi){
+        POI p = poiService.findById(idPoi);
         Route r = this.findById(idRoute);
         r.getSteps().stream().forEach(poi -> {
-            if(poi.getId().equals(idPoi.getId()))
-                throw new RoutePoiExist(idPoi.getId().toString());
+            if(poi.getId().equals(idPoi))
+                throw new RoutePoiExist(idPoi.toString());
         });
 
         r.addToRoute(p);

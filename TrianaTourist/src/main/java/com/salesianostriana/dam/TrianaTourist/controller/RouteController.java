@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.TrianaTourist.controller;
 
-import com.salesianostriana.dam.TrianaTourist.dto.poiDto.CreatePoiRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.CreateRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRouteDto;
 import com.salesianostriana.dam.TrianaTourist.dto.routeDto.GetRoutePOIDto;
@@ -40,8 +39,8 @@ public class RouteController {
         return service.edit(route,id);
     }
 
-    @PostMapping("/{idRoute}/poi")
-    public ResponseEntity<GetRoutePOIDto> crearListPoi(@Valid @PathVariable Long idRoute, @RequestBody CreatePoiRouteDto idPoi){
+    @PostMapping("/{idRoute}/poi/{idPoi}")
+    public ResponseEntity<GetRoutePOIDto> crearListPoi(@Valid @PathVariable Long idRoute, @PathVariable Long idPoi){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createListPoi(idRoute,idPoi));
     }
 
