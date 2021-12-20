@@ -52,8 +52,8 @@ public class CategoryService {
     }
 
     public void deleteById (Long id){
-        Optional<Category> estacion = categoryRepository.findById(id);
-        if(estacion.isEmpty()){
+        Optional<Category> category = categoryRepository.findById(id);
+        if(category.isEmpty()){
             throw new SingleEntityNotFoundException(id.toString(),Category.class);
         }else{
             List<POI> poi = poiRepository.todasCategoriasPOI(id);
