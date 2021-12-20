@@ -6,7 +6,7 @@ import org.springframework.beans.PropertyAccessorFactory;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UniquePhotoValidator implements ConstraintValidator<UniquePhoto, Object> {
+public class UniquePhotoValidator implements ConstraintValidator<UniquePhoto, Object>{
 
     private String coverPhotoField;
     private String photo2Field;
@@ -26,13 +26,13 @@ public class UniquePhotoValidator implements ConstraintValidator<UniquePhoto, Ob
         String photo2 = (String) PropertyAccessorFactory.forBeanPropertyAccess(s).getPropertyValue(photo2Field);
         String photo3 = (String) PropertyAccessorFactory.forBeanPropertyAccess(s).getPropertyValue(photo3Field);
 
-        if (coverPhoto.equals(photo2) || coverPhoto.equals(photo3) || photo2.equals(photo3) ||
-                (photo2.equals(null) && coverPhoto.equals(photo3)) || (photo3.equals(null) && coverPhoto.equals(photo2))) {
+        if(coverPhoto.equals(photo2) || coverPhoto.equals(photo3) || ((photo2.equals(null)
+                || photo3.equals(null)) && (photo2.equals(photo3))) ||
+                (photo2.equals(null) && coverPhoto.equals(photo3)) || (photo3.equals(null) && coverPhoto.equals(photo2))
+                || (photo2.equals(photo3) && (!photo2.isBlank() && !photo3.isBlank()))){
             return false;
-        } else {
+        }else {
             return true;
         }
-
-
     }
 }
